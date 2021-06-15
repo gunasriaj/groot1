@@ -1,0 +1,16 @@
+import sys,os,re   
+from flask import Flask, flash, request, redirect, render_template
+from werkzeug.utils import secure_filename
+from config import *
+
+app=Flask(__name__)
+app.secret_key = app_key
+
+## on page '/upload' load display the upload file
+@app.route('/upload')
+def upload_form():
+    return render_template('upload.html')
+# Additional Code Goes Here #
+if __name__ == "__main__":
+    print('to upload files navigate to http://127.0.0.1:4000/upload')
+    app.run(host='127.0.0.1',port=4000,debug=True,threaded=True)
